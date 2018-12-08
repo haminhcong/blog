@@ -15,11 +15,13 @@ layout: default
     {% include paginator.html %}
   </div>
   <div class="right-sidebar">
-    <h3 class="book-reading sidebar-title">The book i am reading</h3>
-    <a target="_blank" href="{{page.sidebar.reading_book.link}}">
-      <img src="{{ base_path }}/images/{{ page.sidebar.reading_book.image }}"    
-        alt="{{page.sidebar.reading_book.image_alt}}">
-    </a>
+    <div class="book-reading">
+      <h3 class="sidebar-title">The book i am reading</h3>
+      <a target="_blank" href="{{page.sidebar.reading_book.link}}">
+        <img src="{{ base_path }}/images/{{ page.sidebar.reading_book.image }}"    
+          alt="{{page.sidebar.reading_book.image_alt}}">
+      </a>
+    </div>
     <div class="about-me">
       <h3 class="sidebar-title">About me</h3>
       <div>{{page.sidebar.about_me}}</div>
