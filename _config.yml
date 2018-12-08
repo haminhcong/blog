@@ -12,6 +12,10 @@
 
 minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
+# deployment
+host: 0.0.0.0
+port: 5000
+
 # Site Settings
 locale                   : "en-US"
 title                    : "CongHM Blog"
@@ -102,7 +106,7 @@ analytics:
 # Site Author
 author:
   name             : "Cong HM"
-  avatar           : "/assets/images/avatar.jpeg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/images/avatar.jpeg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "...Nothing to say at this moment..."
   location         : "In the sky"
   email            :

@@ -1,13 +1,50 @@
 ---
-layout: archive
+layout: default
 ---
 
-{{ content }}
+{% include base_path %}
 
-<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
+<div id="main" role="main" class="home-page">
+  <div class="archive content">
+    {% unless page.header.overlay_color or page.header.overlay_image %}
+    <h1 id="page-title" class="page__title">{{ page.title }}</h1>
+    {% endunless %}
+    {% for post in paginator.posts %}
+      {% include archive-single.html %}
+    {% endfor %}
+    {% include paginator.html %}
+  </div>
+  <div class="right-sidebar">
+    <h3 class="book-reading sidebar-title">The book i am reading</h3>
+    <a target="_blank" href="{{page.sidebar.reading_book.link}}">
+      <img src="{{ base_path }}/images/{{ page.sidebar.reading_book.image }}"    
+        alt="{{page.sidebar.reading_book.image_alt}}">
+    </a>
+    <div class="about-me">
+      <h3 class="sidebar-title">About me</h3>
+      <div>{{page.sidebar.about_me}}</div>
+    </div>
+    <div class="categories">
+      <h3 class="sidebar-title">Categories</h3>
+      <ul>
+        {% case site.category_archive.type %}
+          {% when "liquid" %}
+            {% assign path_type = "#" %}
+          {% when "jekyll-archives" %}
+            {% assign path_type = nil %}
+        {% endcase %}
+        {% assign categories_list = site.categories %}
+        {% for category in categories_list %}
+          <li>
+            <a href="{{ base_path }}{{ category[0] | slugify | prepend: path_type | prepend: site.category_archive.path }}" 
+            class="btn btn--primary" rel="tag">
+              {{ category[0] }}
+            </a>
+            ({{ category[1].size }})
+          </li>
+        {% endfor %}    
+      </ul>
+    </div>
+  </div>
 
-{% for post in paginator.posts %}
-  {% include archive-single.html %}
-{% endfor %}
-
-{% include paginator.html %}
+</div>
