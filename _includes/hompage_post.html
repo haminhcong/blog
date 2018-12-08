@@ -43,5 +43,7 @@
       <p class="archive__item-excerpt summary" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 300 }}</p>
     {% endif %}
   </div>
-
+  <div class="read-more">
+    <a href="{{ post.url | relative_url }}" rel="permalink">Read more...</a>
+  </div>
 </div>
