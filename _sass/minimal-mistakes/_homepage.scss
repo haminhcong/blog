@@ -36,11 +36,20 @@
         .categories > ul >li{
             font-size: 75%;
         }
+        .book-reading > a > img{
+            display:block;
+            margin:auto;
+            max-width: 70%;
+        }
+    }
+    .about-me > div{
+        padding-left: 1.5em;
+        font-size: 75%;
     }
     .sidebar-title {
         margin-bottom: 1em;
         border-bottom: 1px solid #ccc;
         font-weight: normal;
-        font-size: 110%;
+        font-size: 100%;
     }
 }
