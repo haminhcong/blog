@@ -1,0 +1,46 @@
+.home-page {
+    .content {
+        padding-left: 2.5em;
+        padding-right: 2.5em;
+        margin-top: 1em;
+        margin-bottom: 2em;
+        float: left;
+        @include breakpoint($medium-wide) {
+            width: calc(100% - #{$right-sidebar-width});
+        }
+        @include breakpoint($x-large) {
+            width: calc(100% - #{$right-sidebar-width-wide});
+        }
+    }
+    .right-sidebar {
+        padding-left: 2.5em;
+        padding-right: 2.5em;
+        background-color: #f0f0f0;
+        margin-top: 10px;
+        width: 100%;
+        float: left;
+
+        @include breakpoint($medium-wide) {
+            padding-left: 1rem;
+            float: right;
+            padding-right: 1rem;
+            width: $right-sidebar-width;
+        }
+        @include breakpoint($x-large) {
+            width: $right-sidebar-width-wide;
+        }
+        .categories > ul {
+            list-style-type: none;
+            padding-left: 0.5em;
+        }
+        .categories > ul >li{
+            font-size: 75%;
+        }
+    }
+    .sidebar-title {
+        margin-bottom: 1em;
+        border-bottom: 1px solid #ccc;
+        font-weight: normal;
+        font-size: 110%;
+    }
+}
