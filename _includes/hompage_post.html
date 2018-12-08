@@ -1,0 +1,48 @@
+{% if post.header.teaser %}
+  {% capture teaser %}{{ post.header.teaser }}{% endcapture %}
+{% else %}
+  {% assign teaser = site.teaser %}
+{% endif %}
+
+{% if post.id %}
+  {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
+{% else %}
+  {% assign title = post.title %}
+{% endif %}
+
+<div class="homepage_post post">
+    <div class="post-header">
+      <h2 class="post-title" itemprop="headline">
+          <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
+      </h2>
+       <div class="post-time">
+        <i>
+          <time datetime="{{ page.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+        </i>
+      </div> 
+    </div>
+     <div class="post-summary">
+       <div class="post-stats">
+          {% if post.read_time %}
+          <p class="page__meta read-time"><i class="far fa-clock" aria-hidden="true"></i> {% include read-time.html %}</p>
+          {% endif %}
+       </div>
+      {% if post.excerpt %}
+        <p class="archive__item-excerpt summary" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 300 }}</p>
+      {% endif %}
+    </div>
+    <div class="post-tags">
+      {% case site.category_archive.type %}
+        {% when "liquid" %}
+          {% assign path_type = "#" %}
+        {% when "jekyll-archives" %}
+          {% assign path_type = nil %}
+      {% endcase %}
+    {%for post_category in post.categories %}
+      <a href="{{ base_path }}{{ post_category | slugify | prepend: path_type | prepend: site.category_archive.path }}" 
+        class="btn btn--danger" rel="tag">
+        {{ post_category }}
+      </a>
+    {% endfor %} 
+    </div>
+</div>
