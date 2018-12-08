@@ -121,4 +121,19 @@
             }
         }
     }
+    .read-more{
+        margin-top: 0.5em;
+        font-weight: 400;
+        font-size: 0.75em;
+        line-height: 1.25em;
+        overflow: hidden;
+        min-width: 0;
+        text-overflow: ellipsis;
+        a{
+            text-decoration: none;
+        }
+        a:hover{
+            text-decoration: none;
+        }
+    }
 }
