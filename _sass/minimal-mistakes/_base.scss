@@ -355,3 +355,7 @@ input[type="submit"],
   -webkit-transition: $global-transition;
   transition: $global-transition;
 }
+
+a:focus {
+  border: 0;
+}
