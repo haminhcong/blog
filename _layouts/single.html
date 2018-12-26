@@ -14,6 +14,8 @@ layout: default
   {% endunless %}
 {% endif %}
 
+{% include base_path %}
+
 <div id="main" role="main">
   {% include sidebar.html %}
 
@@ -93,3 +95,8 @@ layout: default
     </div>
   {% endif %}
 </div>
+
+<aside class="sidebar__top">
+  <a href="#site-nav"><img src="{{ base_path }}/images/back-to-top.svg" alt="Back to top"> </a>
+</aside>
+
