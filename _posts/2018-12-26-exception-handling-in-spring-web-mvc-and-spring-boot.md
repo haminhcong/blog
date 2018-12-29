@@ -8,7 +8,7 @@ categories:
 When an exception is thrown during service proccess a request, sometime we need return a response with error status code (status code <> 200) and a message to inform user the request is not processed successfully. To do it  in Spring Web MVC, we has many solutions, this article will show 3 commons solution to handle exceptions and return appropriate response.
 
 
-## Approach 1: Use `ResponseStatus` and CustomClassException class
+### Approach 1: Use `ResponseStatus` and CustomClassException class
 
 ```java
 
@@ -63,7 +63,7 @@ Example Response:
 ```
 
 
-## Approach 2: Using `@ExceptionHandler` for handle Exception for a Single Controller
+### Approach 2: Using `@ExceptionHandler` for handle Exception for a Single Controller
 
 ```java
 @Slf4j
@@ -115,7 +115,9 @@ Example Response:
 
 ```
 
-## Approach 3: Using `@ExceptionHandler` with `@ControllerAdvice` for handle Exception for All Controller, if exception is not handled in this controller.
+### Approach 3: Using `@ExceptionHandler` with `@ControllerAdvice` for handle Exception for All Controller.
+
+If exception is not handled in this controller, then Exception handler class annotated with `@ExceptionHandler` and `@ControllerAdvice` will handle exception
 
 ```java
 
